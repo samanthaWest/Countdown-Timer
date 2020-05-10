@@ -40,6 +40,28 @@ handleChange(e) {
 
 handleSubmit(e) {
   e.preventDefault();
+
+  // Add event
+  fetch("http://localhost:8080/addEvent", {
+        method: "POST",
+        body: JSON.stringify({
+          eventName: 'test',
+          eventDate: null
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => {
+        // this.setState({ isSubmitting: false });
+        return res.json();
+    })
+    .then(data => {
+        console.log(data);
+        !data.hasOwnProperty("error")
+            ? this.setState({ message: data.success })
+            : this.setState({ message: data.error, isError: true });
+    });
 }
  
   render() {
