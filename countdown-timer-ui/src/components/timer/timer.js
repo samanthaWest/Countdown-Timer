@@ -29,7 +29,7 @@ class timer extends React.Component {
 
         this.setState({ days, hours, minutes, seconds });
     }, 1000);
-}
+    }
 
   componentWillUnmount() {
       if (this.interval) {
