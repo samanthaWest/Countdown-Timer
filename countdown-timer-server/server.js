@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const HTTP_PORT = process.env.PORT || 8080;
-const mongoDBConnectionString = 'mongodb+srv://dbAdmin:samdb123456@cluster0-coyhp.mongo=true&w=majoritydb.net/eventCollection?retryWrites';
+const mongoDBConnectionString = '';
 
 const dataService = require("./data-service.js");
 const data = dataService(mongoDBConnectionString);

@@ -8,7 +8,6 @@ const eventSchema = require('./models/event.js');
 module.exports = function(mongoDBConnectionString){
 
     let Event; // defined on connection to the new db instance
-    let Employee; // defined on connection to the new db instance
 
     return {
 
@@ -23,7 +22,6 @@ module.exports = function(mongoDBConnectionString){
         
                 db.once('open', ()=>{
                     Event = db.model("events", eventSchema);
-                    console.log("CONNECTS");
                     resolve();
                 });
             });
@@ -42,7 +40,7 @@ module.exports = function(mongoDBConnectionString){
                 });
             })
         },
-        addEmployee: function (eventData) {
+        addEvent: function (eventData) {
             return new Promise(function (resolve, reject) {
                 
                 // Create a newEmployee from the employeeData
